@@ -17,13 +17,13 @@ blog_posts = MoniepointBlogPosts()
 data = blog_posts.get_data().to_dict('records')
 
 # Validate data with Pydantic
-def validate_data(data: List[dict]) -> List[BlogPost]:
+def validate_data(data: List[dict]) -> List[MoniepointBlogPost]:
     """
-    Validates data using the BlogPost Pydantic model.
+    Validates data using the MoniepointBlogPost Pydantic model.
     Args:
         data (List[dict]): Raw data to validate.
     Returns:
-        List[BlogPost]: A list of validated BlogPost objects.
+        List[MoniepointBlogPost]: A list of validated MoniepointBlogPost objects.
     Raises:
         ValidationError: If any data item fails validation.
     """
