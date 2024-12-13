@@ -8,7 +8,7 @@ from ilimikudi.data import MoniepointBlogPosts
 embeddings = Embeddings()
 
 # Define Pydantic model for data validation
-class BlogPost(BaseModel):
+class MoniepointBlogPost(BaseModel):
     id: str
     text: str
 
@@ -30,7 +30,7 @@ def validate_data(data: List[dict]) -> List[BlogPost]:
     validated_data = []
     for idx, record in enumerate(data):
         try:
-            validated_data.append(BlogPost(id=str(idx), text=record["text"]))
+            validated_data.append(MoniepointBlogPost(id=str(idx), text=record["text"]))
         except ValidationError as e:
             print(f"Validation error for record {idx}: {e}")
     return validated_data
