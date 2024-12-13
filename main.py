@@ -9,8 +9,6 @@ from langchain_core.tools import tool
 
 from dotenv import load_dotenv
 
-from create_embeddings import embedding_model
-
 load_dotenv()
 
 LLM_API_KEY = os.environ["LLM_API_KEY"]
