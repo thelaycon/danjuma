@@ -9,6 +9,11 @@ from langchain_core.tools import tool
 
 from dotenv import load_dotenv
 
+from tools.blog_context import get_context
+
+tools = [get_context]
+
+
 load_dotenv()
 
 LLM_API_KEY = os.environ["LLM_API_KEY"]
@@ -16,14 +21,5 @@ LLM_API_KEY = os.environ["LLM_API_KEY"]
 llm = ChatOpenAI(
     base_url = "https://api.together.xyz/v1",
     api_key = LLM_API_KEY,
-    model = "mistralai/Mixtral-8x7B-Instruct-v0.1"
+    model = "meta-llama/Llama-3.3-70B-Instruct-Turbo"
 )
-
-messages = [
-    SystemMessage(content="I am a banking customer care"),
-    HumanMessage(content="Hello there, how are you?")
-]
-
-response = llm.invoke(messages)
-
-print(response)
