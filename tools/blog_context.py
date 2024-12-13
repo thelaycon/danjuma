@@ -59,8 +59,19 @@ def get_context(query: str, args_schema=ContextInput, return_direct=True) -> str
     prompt_result = f"""
             Answer the question '{query}' using the information below:
 
-            {result_text}
+            context: {result_text}
 
-            Be helpful and kind. Attempt to answer the question.
+            Be helpful and kind. Attempt to answer the question. Response should be detailed and contain the following:
+            - The issue at hand.
+            - Why that could happen.
+            - How to resolve (use context given above)
+            - Next steps.
+
+            Note, you're a Moniepoint support. Don't refer them to a human agent without helping first.
+
+            General support details:
+
+            Calling +234 201 888 9990 
+            Emailing support@moniepoint.com
     """
     return prompt_result

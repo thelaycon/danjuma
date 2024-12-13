@@ -23,6 +23,11 @@ llm = ChatOpenAI(
     timeout=None
 )
 
+
+tools = [get_context, answer_greeting]
+
+llm_with_tools = llm.bind_tools(tools, tool_choice="any")
+
 # Streamlit app setup
 st.title("Danjuma")
 st.write("Ask me anything about Moniepoint!")
@@ -46,6 +51,17 @@ if prompt := st.chat_input("Type your message here..."):
     # Prepare the prompt using moniepoint tool
     prepared_prompt = moniepoint_few_shot_prompt.invoke({"query": prompt})
     messages = prepared_prompt.to_messages()
+
+  
+    # Fetch AI response
+    response = llm_with_tools.invoke(messages)
+    messages.append(response)
+
+    # Process tool calls and append responses
+    for tool_call in response.tool_calls:
+        tool_message = {"get_context":get_context, "answer_greeting":answer_greeting}[tool_call["name"]].invoke(tool_call)
+        messages.append(tool_message)
+        print(tool_message)
 
     # Generate assistant response
     with st.chat_message("assistant"):
