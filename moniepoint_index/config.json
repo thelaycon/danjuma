@@ -4,7 +4,7 @@
   "backend": "faiss",
   "offset": 99,
   "build": {
-    "create": "2024-12-13T03:37:41Z",
+    "create": "2024-12-13T08:09:47Z",
     "python": "3.10.12",
     "settings": {
       "components": "IDMap,Flat"
@@ -12,5 +12,5 @@
     "system": "Linux (x86_64)",
     "txtai": "8.1.0"
   },
-  "update": "2024-12-13T03:37:41Z"
+  "update": "2024-12-13T08:09:47Z"
 }

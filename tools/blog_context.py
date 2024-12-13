@@ -35,6 +35,7 @@ class ContextInput(BaseModel):
     Schema for input arguments to the get_context tool.
     """
     query: str = Field(
+        default="Hello Danjuma", 
         description="Query or question to be searched in the embeddings or database."
     )
 
@@ -54,4 +55,12 @@ def get_context(query: str, args_schema=ContextInput, return_direct=True) -> str
     """
     # Search for relevant context based on the query
     result_text = search_embeddings(query)
-    return result_text
+
+    prompt_result = f"""
+            Answer the question '{query}' using the information below:
+
+            {result_text}
+
+            Be helpful and kind. Attempt to answer the question.
+    """
+    return prompt_result

@@ -9,7 +9,7 @@ embeddings = Embeddings()
 
 # Define Pydantic model for data validation
 class MoniepointBlogPost(BaseModel):
-    id: str
+    id: int
     text: str
 
 # Load data
@@ -30,7 +30,7 @@ def validate_data(data: List[dict]) -> List[MoniepointBlogPost]:
     validated_data = []
     for idx, record in enumerate(data):
         try:
-            validated_data.append(MoniepointBlogPost(id=str(idx), text=record["text"]))
+            validated_data.append(MoniepointBlogPost(id=idx, text=record["text"]))
         except ValidationError as e:
             print(f"Validation error for record {idx}: {e}")
     return validated_data
@@ -55,7 +55,7 @@ def embed(site: str, data: list) -> bool:
         return True
     else:
         print("Index not found. Now populating.")
-        embeddings.index(data)
+        embeddings.index(data_to_index)
         embeddings.save(index_path)
         print(f"Index created and saved at {index_path}.")
         return True    
