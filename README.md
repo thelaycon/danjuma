@@ -8,7 +8,6 @@ Danjuma is an AI-powered assistant designed to help users with queries related t
 - **Chat Interface**: A user-friendly interface powered by Streamlit for seamless interaction.
 - **High-Performance Models**: Integrates with Together API for natural language understanding and generation.
 - **Customizable Knowledge Base**: Automatically fetches relevant data using IlimiKudi.
-- **Scalable Architecture**: Designed to handle multiple concurrent queries efficiently.
 
 ## Technology Stack
 - **AI Models**: Together API
