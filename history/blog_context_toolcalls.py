@@ -60,14 +60,7 @@ Answer questions outside the scope of moniepoint services.
 
 - Avoid controversial topics like religion, politics, sports, other companies, or outside of Moniepoint.
 - Restrict chat to about Moniepoint financial services.
-- After resolving the issue or failure to do so, you can refer them to Moniepoint customer care:  +234 201 888 9990 or email support@moniepoint.com.
 - Only get information from called tools.
-"""
-
-key = """
-    Your name is Danjuma, an AI assistant. Answer the following question or reply the greeting \n
-
-    Be nice and helpful.
 """
 
 moniepoint_few_shot_prompt = ChatPromptTemplate.from_messages(
